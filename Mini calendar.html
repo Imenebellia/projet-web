@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"content="width=device-width,initial-scale=1.0">
+    <title>Mini calendar</title>
+    <link rel="website icon" type="png" href="674aa3e7-d7bb-401b-ae89-f37066339e91.jpg">
+   
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family: 'Poppins' ,sans-serif;
+            box-sizing: border-box;
+        }
+        .horo{
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(45deg,#1d0000,#20205d);
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .calendar{
+            width: 300px;
+            height:250px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .left ,.right{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 24px;
+
+        }
+        .right{
+            width: 42%;
+            background:#081086;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .left{
+width: 58%;
+        }
+        #date{
+            font-size: 100px;
+            line-height: 90px;
+        }
+        .marquee { 
+            width: 80%;
+            margin: 20px auto;
+            background: url('2abe2e68-217c-4535-9053-6402cf6837c8.jpg') center/cover no-repeat; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        @keyframes colorChange {
+            0% { color: palevioletred; } 
+            50% { color: purple; } 
+            100% { color: blue; } 
+        }
+
+        h1 {
+            animation: colorChange 5s infinite;
+        }
+    
+         </style>
+   
+</head>
+<body>
+    <div class="marquee">
+        <h1>Mini calendar</h1>
+       
+    </div>
+<div class="horo">
+<div class="calendar">
+    <div class="left">
+        <p id="date">01</p>
+        <p id="day">Sunday</p>
+    </div>
+    <div class="right">
+        <p id="month">January</p>
+        <p id="year">2020</p>
+    </div>
+</div>
+</div>
+<script>
+    const date =document.getElementById("date");
+    const day =document.getElementById("day");
+    const month =document.getElementById("month");
+    const year =document.getElementById("year");
+    const today =new Date();
+    const weekDays=["Sunday","Monday","TuesDay","WednesDay","ThursDay","FriDay","SaturDay"];
+    const allMonths= ["January","Fedruary","March","April","May","June","July","August","September","October","Novembre","December"];
+    console.log(today);
+    date.innerHTML =(today.getDate()<10?"0":"")+today.getDate();
+    day.innerHTML =weekDays[today.getDay()];
+    month.innerHTML =allMonths[today.getMonth()];
+    year.innerHTML =today.getFullYear();
+</script>
+</body></html>
